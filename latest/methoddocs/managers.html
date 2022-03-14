@@ -498,7 +498,7 @@ before yielding the block. The more confirmations, the less likely a reorg will 
 
 <dl class="py method">
 <dt id="ape.managers.chain.BlockContainer.query">
-<code class="sig-name descname"><span class="pre">query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_to_use</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api.html#ape.api.query.QueryAPI" title="ape.api.query.QueryAPI"><span class="pre">ape.api.query.QueryAPI</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pandas.core.frame.DataFrame</span><a class="headerlink" href="#ape.managers.chain.BlockContainer.query" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_block</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine_to_use</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pandas.core.frame.DataFrame</span><a class="headerlink" href="#ape.managers.chain.BlockContainer.query" title="Permalink to this definition">¶</a></dt>
 <dd><p>A method for querying blocks and returning a pandas DataFrame. If you
 do not provide a starting block, the 0 block is assumed. If you do not
 provide a stopping block, the last block is assumed. You can pass
@@ -510,12 +510,12 @@ provide a stopping block, the last block is assumed. You can pass
 </dd>
 <dt class="field-even">Parameters</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>columns</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – columns in the DataFrame to return</p></li>
+<li><p><strong>columns</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – columns in the DataFrame to return</p></li>
 <li><p><strong>start_block</strong> (<em>int</em>) – The first block, by number, to include in the
 query. Defaults to 0.</p></li>
 <li><p><strong>stop_block</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – The last block, by number, to include
 in the query. Defaults to the latest block.</p></li>
-<li><p><strong>engine_to_use</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="api.html#ape.api.query.QueryAPI" title="ape.api.query.QueryAPI"><em>QueryAPI</em></a><em>]</em>) – query engine to use, bypasses query
+<li><p><strong>engine_to_use</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – query engine to use, bypasses query
 engine selection algorithm.</p></li>
 </ul>
 </dd>
@@ -672,7 +672,7 @@ to go back to this point. This method is for local networks only.</p>
 <span id="config"></span><h2>Config<a class="headerlink" href="#module-ape.managers.config" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="ape.managers.config.ConfigManager">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ape.managers.config.</span></code><code class="sig-name descname"><span class="pre">ConfigManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DATA_FOLDER</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">REQUEST_HEADER</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PROJECT_FOLDER</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contracts_folder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api.html#ape.api.projects.DependencyAPI" title="ape.api.projects.DependencyAPI"><span class="pre">ape.api.projects.DependencyAPI</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deployments</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ape.managers.config.DeploymentConfig" title="ape.managers.config.DeploymentConfig"><span class="pre">ape.managers.config.DeploymentConfig</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ape.managers.config.ConfigManager" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ape.managers.config.</span></code><code class="sig-name descname"><span class="pre">ConfigManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DATA_FOLDER</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">REQUEST_HEADER</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PROJECT_FOLDER</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contracts_folder</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dependencies</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api.html#ape.api.projects.DependencyAPI" title="ape.api.projects.DependencyAPI"><span class="pre">ape.api.projects.DependencyAPI</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deployments</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#ape.managers.config.DeploymentConfigCollection" title="ape.managers.config.DeploymentConfigCollection"><span class="pre">ape.managers.config.DeploymentConfigCollection</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ape.managers.config.ConfigManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>The singleton responsible for managing the <code class="docutils literal notranslate"><span class="pre">ape-config.yaml</span></code> project file.
 The config manager is useful for loading plugin configurations which contain
 settings that determine how <code class="docutils literal notranslate"><span class="pre">ape</span></code> functions. When developing plugins,
@@ -699,17 +699,6 @@ is how you can access those settings at runtime.</p>
 <dd><p>The path to the <code class="docutils literal notranslate"><span class="pre">ape</span></code> project.</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="ape.managers.config.ConfigManager.__str__">
-<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#ape.managers.config.ConfigManager.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>The JSON-text version of the project config data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py attribute">
 <dt id="ape.managers.config.ConfigManager.contracts_folder">
 <code class="sig-name descname"><span class="pre">contracts_folder</span></code><em class="property"><span class="pre">:</span> <span class="pre">pathlib.Path</span></em><a class="headerlink" href="#ape.managers.config.ConfigManager.contracts_folder" title="Permalink to this definition">¶</a></dt>
@@ -725,7 +714,7 @@ is how you can access those settings at runtime.</p>
 
 <dl class="py attribute">
 <dt id="ape.managers.config.ConfigManager.deployments">
-<code class="sig-name descname"><span class="pre">deployments</span></code><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ape.managers.config.DeploymentConfig" title="ape.managers.config.DeploymentConfig"><span class="pre">ape.managers.config.DeploymentConfig</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.managers.config.ConfigManager.deployments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">deployments</span></code><em class="property"><span class="pre">:</span> <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ape.managers.config.DeploymentConfigCollection" title="ape.managers.config.DeploymentConfigCollection"><span class="pre">ape.managers.config.DeploymentConfigCollection</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.managers.config.ConfigManager.deployments" title="Permalink to this definition">¶</a></dt>
 <dd><p>A dict of contract deployments by address and contract type.</p>
 </dd></dl>
 
@@ -796,6 +785,17 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">&lt;pro
 <dt id="ape.managers.config.DeploymentConfig">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ape.managers.config.</span></code><code class="sig-name descname"><span class="pre">DeploymentConfig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_env_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'&lt;object</span> <span class="pre">object&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_file_encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_env_nested_delimiter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_secrets_dir</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contract_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ape.managers.config.DeploymentConfig" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py class">
+<dt id="ape.managers.config.DeploymentConfigCollection">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ape.managers.config.</span></code><code class="sig-name descname"><span class="pre">DeploymentConfigCollection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_ecosystem_names</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_network_names</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ape.managers.config.DeploymentConfigCollection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="ape.managers.config.DeploymentConfigCollection.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_ecosystem_names</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_network_names</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ape.managers.config.DeploymentConfigCollection.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 <div class="section" id="module-ape.managers.converters">
@@ -1073,6 +1073,12 @@ However, use this singleton for more granular access to networks.</p>
 </pre></div>
 </div>
 <dl class="py method">
+<dt id="ape.managers.networks.NetworkManager.active_provider">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">active_provider</span></code><a class="headerlink" href="#ape.managers.networks.NetworkManager.active_provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>The currently connected provider if one exists. Otherwise, returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="ape.managers.networks.NetworkManager.default_ecosystem">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">default_ecosystem</span></code><a class="headerlink" href="#ape.managers.networks.NetworkManager.default_ecosystem" title="Permalink to this definition">¶</a></dt>
 <dd><p>The default ecosystem. Call
@@ -1083,9 +1089,46 @@ that ecosystem.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="ape.managers.networks.NetworkManager.ecosystem_names">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ecosystem_names</span></code><a class="headerlink" href="#ape.managers.networks.NetworkManager.ecosystem_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of all ecosystem names in <code class="docutils literal notranslate"><span class="pre">ape</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="ape.managers.networks.NetworkManager.ecosystems">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ecosystems</span></code><a class="headerlink" href="#ape.managers.networks.NetworkManager.ecosystems" title="Permalink to this definition">¶</a></dt>
 <dd><p>All the registered ecosystems in <code class="docutils literal notranslate"><span class="pre">ape</span></code>, such as <code class="docutils literal notranslate"><span class="pre">ethereum</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ape.managers.networks.NetworkManager.get_network_choices">
+<code class="sig-name descname"><span class="pre">get_network_choices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ecosystem_filter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_filter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider_filter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ape.managers.networks.NetworkManager.get_network_choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of all possible network choices available as a “network selection”
+e.g. <code class="docutils literal notranslate"><span class="pre">--network</span> <span class="pre">[ECOSYSTEM:NETWORK:PROVIDER]</span></code>.</p>
+<p>Each value is in the form <code class="docutils literal notranslate"><span class="pre">ecosystem:network:provider</span></code> and shortened options also
+appear in the list. For example, <code class="docutils literal notranslate"><span class="pre">::geth</span></code> would default to <code class="docutils literal notranslate"><span class="pre">:ethereum:local:geth</span></code>
+and both will be in the returned list. The values come from each
+<a class="reference internal" href="api.html#ape.api.providers.ProviderAPI" title="ape.api.providers.ProviderAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProviderAPI</span></code></a> that is installed.</p>
+<p>Use the CLI command <code class="docutils literal notranslate"><span class="pre">ape</span> <span class="pre">networks</span> <span class="pre">list</span></code> to list all the possible network
+combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ecosystem_filter</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>str</em><em>]</em><em>]</em>) – Get only the specified ecosystems.
+Defaults to getting all ecosystems.</p></li>
+<li><p><strong>network_filter</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>str</em><em>]</em><em>]</em>) – Get only the specified networks.
+Defaults to getting all networks in ecosystems.</p></li>
+<li><p><strong>provider_filter</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>str</em><em>]</em><em>]</em>) – Get only the specified providers.
+Defaults to getting all providers in networks.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An iterator over all the network-choice possibilities.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Iterator[str]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1093,7 +1136,7 @@ that ecosystem.</p>
 <code class="sig-name descname"><span class="pre">get_provider_from_choice</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network_choice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider_settings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="api.html#ape.api.providers.ProviderAPI" title="ape.api.providers.ProviderAPI"><span class="pre">ape.api.providers.ProviderAPI</span></a><a class="headerlink" href="#ape.managers.networks.NetworkManager.get_provider_from_choice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a <a class="reference internal" href="api.html#ape.api.providers.ProviderAPI" title="ape.api.providers.ProviderAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProviderAPI</span></code></a> from a network choice.
 A network choice is any value returned from
-<a class="reference internal" href="#ape.managers.networks.NetworkManager.network_choices" title="ape.managers.networks.NetworkManager.network_choices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">network_choices</span></code></a>. Use the
+<a class="reference internal" href="#ape.managers.networks.NetworkManager.get_network_choices" title="ape.managers.networks.NetworkManager.get_network_choices"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_network_choices()</span></code></a>. Use the
 CLI command <code class="docutils literal notranslate"><span class="pre">ape</span> <span class="pre">networks</span> <span class="pre">list</span></code> to list all the possible network
 combinations.</p>
 <dl class="field-list simple">
@@ -1104,34 +1147,13 @@ combinations.</p>
 <dt class="field-even">Parameters</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>network_choice</strong> (<em>str</em><em>, </em><em>optional</em>) – The network choice
-(see <a class="reference internal" href="#ape.managers.networks.NetworkManager.network_choices" title="ape.managers.networks.NetworkManager.network_choices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">network_choices</span></code></a>).
+(see <a class="reference internal" href="#ape.managers.networks.NetworkManager.get_network_choices" title="ape.managers.networks.NetworkManager.get_network_choices"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_network_choices()</span></code></a>).
 Defaults to the default ecosystem, network, and provider combination.</p></li>
 <li><p><strong>provider_settings</strong> (<em>dict</em><em>, </em><em>optional</em>) – Settings for the provider. Defaults to None.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><a class="reference internal" href="api.html#ape.api.providers.ProviderAPI" title="ape.api.providers.ProviderAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProviderAPI</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ape.managers.networks.NetworkManager.network_choices">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">network_choices</span></code><a class="headerlink" href="#ape.managers.networks.NetworkManager.network_choices" title="Permalink to this definition">¶</a></dt>
-<dd><p>The set of all possible network choices available as a “network selection”
-e.g. <code class="docutils literal notranslate"><span class="pre">--network</span> <span class="pre">[ECOSYSTEM:NETWORK:PROVIDER]</span></code>.</p>
-<p>Each value is in the form <code class="docutils literal notranslate"><span class="pre">ecosystem:network:provider</span></code> and shortened options also
-appear in the list. For example, <code class="docutils literal notranslate"><span class="pre">::geth</span></code> would default to <code class="docutils literal notranslate"><span class="pre">:ethereum:local:geth</span></code>
-and both will be in the returned list. The values come from each
-<a class="reference internal" href="api.html#ape.api.providers.ProviderAPI" title="ape.api.providers.ProviderAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProviderAPI</span></code></a> that is installed.</p>
-<p>Use the CLI command <code class="docutils literal notranslate"><span class="pre">ape</span> <span class="pre">networks</span> <span class="pre">list</span></code> to list all the possible network
-combinations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>An iterator over all the network-choice possibilities.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Iterator[str]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1147,6 +1169,12 @@ translating into <code class="docutils literal notranslate"><span class="pre">ya
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ape.managers.networks.NetworkManager.network_names">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">network_names</span></code><a class="headerlink" href="#ape.managers.networks.NetworkManager.network_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of all network names in <code class="docutils literal notranslate"><span class="pre">ape</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1167,7 +1195,7 @@ in all the ecosystems.</p>
 <code class="sig-name descname"><span class="pre">parse_network_choice</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network_choice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">provider_settings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="api.html#ape.api.networks.ProviderContextManager" title="ape.api.networks.ProviderContextManager"><span class="pre">ape.api.networks.ProviderContextManager</span></a><a class="headerlink" href="#ape.managers.networks.NetworkManager.parse_network_choice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse a network choice into a context manager for managing a temporary
 connection to a provider. See
-<a class="reference internal" href="#ape.managers.networks.NetworkManager.network_choices" title="ape.managers.networks.NetworkManager.network_choices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">network_choices</span></code></a> for all
+<a class="reference internal" href="#ape.managers.networks.NetworkManager.get_network_choices" title="ape.managers.networks.NetworkManager.get_network_choices"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_network_choices()</span></code></a> for all
 available choices (or use CLI command <code class="docutils literal notranslate"><span class="pre">ape</span> <span class="pre">networks</span> <span class="pre">list</span></code>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -1177,7 +1205,7 @@ available choices (or use CLI command <code class="docutils literal notranslate"
 <dt class="field-even">Parameters</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>network_choice</strong> (<em>str</em><em>, </em><em>optional</em>) – The network choice
-(see <a class="reference internal" href="#ape.managers.networks.NetworkManager.network_choices" title="ape.managers.networks.NetworkManager.network_choices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">network_choices</span></code></a>).
+(see <a class="reference internal" href="#ape.managers.networks.NetworkManager.get_network_choices" title="ape.managers.networks.NetworkManager.get_network_choices"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_network_choices()</span></code></a>).
 Defaults to the default ecosystem, network, and provider combination.</p></li>
 <li><p><strong>provider_settings</strong> (<em>dict</em><em>, </em><em>optional</em>) – Settings for the provider. Defaults to None.</p></li>
 </ul>
@@ -1186,6 +1214,12 @@ Defaults to the default ecosystem, network, and provider combination.</p></li>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ProviderContextManager</span></code></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ape.managers.networks.NetworkManager.provider_names">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">provider_names</span></code><a class="headerlink" href="#ape.managers.networks.NetworkManager.provider_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of all provider names in <code class="docutils literal notranslate"><span class="pre">ape</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1370,8 +1404,10 @@ this class uninitialized.</p>
 <dl class="py method">
 <dt id="ape.managers.project.ProjectManager.__getattr__">
 <code class="sig-name descname"><span class="pre">__getattr__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="contracts.html#ape.contracts.base.ContractContainer" title="ape.contracts.base.ContractContainer"><span class="pre">ape.contracts.base.ContractContainer</span></a><a class="headerlink" href="#ape.managers.project.ProjectManager.__getattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a contract container from an existing contract type or dependency
-name using <code class="docutils literal notranslate"><span class="pre">.</span></code> access.</p>
+<dd><p>Get a contract container from an existing contract type in
+the local project using <code class="docutils literal notranslate"><span class="pre">.</span></code> access.</p>
+<p><strong>NOTE</strong>: To get a dependency contract, use
+<a class="reference internal" href="#ape.managers.project.ProjectManager.dependencies" title="ape.managers.project.ProjectManager.dependencies"><code class="xref py py-attr docutils literal notranslate"><span class="pre">dependencies</span></code></a>.</p>
 <p>Usage example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ape</span> <span class="kn">import</span> <span class="n">project</span>
 
@@ -1379,11 +1415,14 @@ name using <code class="docutils literal notranslate"><span class="pre">.</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>attr_name</strong> (<em>str</em>) – The name of the contract or dependency.</p>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>AttributeError</strong> – When the given name is not a contract in the project.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractContainer</span></code></p>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>attr_name</strong> (<em>str</em>) – The name of the contract in the project.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractContainer</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1556,21 +1595,6 @@ such as <a class="reference internal" href="#ape.managers.project.ApeProject" ti
 </dd></dl>
 
 <dl class="py method">
-<dt id="ape.managers.project.ProjectManager.run_script">
-<code class="sig-name descname"><span class="pre">run_script</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactive</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ape.managers.project.ProjectManager.run_script" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run a script from the project <code class="xref py py-attr docutils literal notranslate"><span class="pre">scripts_folder</span></code>
-directory.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – The script name.</p></li>
-<li><p><strong>interactive</strong> (<em>bool</em>) – Whether to launch the console as well. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="ape.managers.project.ProjectManager.scripts_folder">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">scripts_folder</span></code><a class="headerlink" href="#ape.managers.project.ProjectManager.scripts_folder" title="Permalink to this definition">¶</a></dt>
 <dd><p>The path to the <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory of the project.</p>
@@ -1619,6 +1643,47 @@ in the project. <code class="docutils literal notranslate"><span class="pre">Fal
 </div>
 <div class="section" id="module-ape.managers.query">
 <span id="query"></span><h2>Query<a class="headerlink" href="#module-ape.managers.query" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ape.managers.query.DefaultQueryProvider">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ape.managers.query.</span></code><code class="sig-name descname"><span class="pre">DefaultQueryProvider</span></code><a class="headerlink" href="#ape.managers.query.DefaultQueryProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default implementation of the ape.api.query.QueryAPI
+Allows for the query of blockchain data using connected provider</p>
+<dl class="py method">
+<dt id="ape.managers.query.DefaultQueryProvider.estimate_query">
+<code class="sig-name descname"><span class="pre">estimate_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">BlockQuery</span><span class="p"><span class="pre">,</span> </span><span class="pre">AccountQuery</span><span class="p"><span class="pre">,</span> </span><span class="pre">ContractEventQuery</span><span class="p"><span class="pre">,</span> </span><span class="pre">ContractMethodQuery</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#ape.managers.query.DefaultQueryProvider.estimate_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the time that the query will take as a timestamp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>query</strong> (<code class="docutils literal notranslate"><span class="pre">QueryType</span></code>) – The transaction data you want to query</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Depends on whether the query can be completed</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ape.managers.query.DefaultQueryProvider.perform_query">
+<code class="sig-name descname"><span class="pre">perform_query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">BlockQuery</span><span class="p"><span class="pre">,</span> </span><span class="pre">AccountQuery</span><span class="p"><span class="pre">,</span> </span><span class="pre">ContractEventQuery</span><span class="p"><span class="pre">,</span> </span><span class="pre">ContractMethodQuery</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pandas.core.frame.DataFrame</span><a class="headerlink" href="#ape.managers.query.DefaultQueryProvider.perform_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>query</strong> (<code class="docutils literal notranslate"><span class="pre">QueryType</span></code>) – The specific transaction data you want to query</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pandas dataframe</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt id="ape.managers.query.QueryManager">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ape.managers.query.</span></code><code class="sig-name descname"><span class="pre">QueryManager</span></code><a class="headerlink" href="#ape.managers.query.QueryManager" title="Permalink to this definition">¶</a></dt>
