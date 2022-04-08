@@ -38,13 +38,22 @@ ape compile
 
 **NOTE**: Compiler plugins download missing compiler version binaries, based on the contracts' pragma-spec.
 
-The contract types are then accessible from the `project` manager; deploy them in the `console` or in scripts:
+The contract containers are then accessible from the `project` manager; deploy them in the `console` or in scripts:
 
 ```python
 from ape import accounts, project
 
-a = accounts.load("metamask_0")
-a.deploy(project.MyContract)
+account = accounts.load("my_account_alias")
+account.deploy(project.MyContract)
+```
+
+**NOTE**: You can also deploy contracts from the container itself:
+
+```python
+from ape import accounts, project
+
+account = accounts.load("my_account_alias")
+project.MyContract.deploy(sender=account)
 ```
 
 ### Dependencies
@@ -165,6 +174,14 @@ your `ape-config.yaml` file:
 test:
   mnemonic: test test test test test test test test test test test junk
   number_of_accounts: 5
+```
+
+If you are using a fork-provider, such as [Hardhat](https://github.com/ApeWorX/ape-hardhat), you can use impersonated accounts by accessing random addresses off the fixture:
+
+```python
+@pytest.fixture
+def vitalik(accounts):
+    return accounts["0xab5801a7d398351b8be11c439e05c5b3259aec9b"]
 ```
 
 #### project fixture
