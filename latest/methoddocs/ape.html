@@ -61,11 +61,20 @@
               <p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/installing_plugins.html">Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/projects.html">Developing Projects with Ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../userguides/plugins.html">Developing Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/compile.html">Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/cache.html">Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/networks.html">Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/developing_plugins.html">Developing Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/config.html">Configure Ape</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/transactions.html">Making Transactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/console.html">Ape Console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/scripts.html">Scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/publishing.html">Publishing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLI Reference</span></p>
 <ul>
@@ -120,14 +129,14 @@
 <span id="ape"></span><h1>ape<a class="headerlink" href="#module-ape" title="Permalink to this headline"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ape.Contract">
-<span class="sig-prename descclassname"><span class="pre">ape.</span></span><span class="sig-name descname"><span class="pre">Contract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">address:</span> <span class="pre">typing.Union[str,</span> <span class="pre">ape.api.address.BaseAddress,</span> <span class="pre">ChecksumAddress],</span> <span class="pre">*,</span> <span class="pre">networks:</span> <span class="pre">NetworkManager</span> <span class="pre">=</span> <span class="pre">&lt;NetworkManager</span> <span class="pre">active_provider=None&gt;,</span> <span class="pre">conversion_manager:</span> <span class="pre">ConversionManager</span> <span class="pre">=</span> <span class="pre">&lt;ConversionManager&gt;,</span> <span class="pre">contract_type:</span> <span class="pre">typing.Optional[ethpm_types.contract_type.ContractType]</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="api.html#ape.api.address.BaseAddress" title="ape.api.address.BaseAddress"><span class="pre">ape.api.address.BaseAddress</span></a></span></span><a class="headerlink" href="#ape.Contract" title="Permalink to this definition"></a></dt>
-<dd><p>User-facing class for instantiating contracts. See <code class="xref py py-class docutils literal notranslate"><span class="pre">ape.contracts.base._Contract</span></code>.</p>
+<span class="sig-prename descclassname"><span class="pre">ape.</span></span><span class="sig-name descname"><span class="pre">Contract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ChecksumAddress</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contract_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ethpm_types.contract_type.ContractType</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">txn_hash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="contracts.html#ape.contracts.base.ContractInstance" title="ape.contracts.base.ContractInstance"><span class="pre">ape.contracts.base.ContractInstance</span></a></span></span><a class="headerlink" href="#ape.Contract" title="Permalink to this definition"></a></dt>
+<dd><p>User-facing class for instantiating contracts.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ape.Project">
 <span class="sig-prename descclassname"><span class="pre">ape.</span></span><span class="sig-name descname"><span class="pre">Project</span></span><a class="headerlink" href="#ape.Project" title="Permalink to this definition"></a></dt>
-<dd><p>alias of <a class="reference internal" href="managers.html#ape.managers.project.ProjectManager" title="ape.managers.project.ProjectManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.managers.project.ProjectManager</span></code></a></p>
+<dd><p>alias of <a class="reference internal" href="managers.html#ape.managers.project.manager.ProjectManager" title="ape.managers.project.manager.ProjectManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.managers.project.manager.ProjectManager</span></code></a></p>
 </dd></dl>
 
 <dl class="py data">
@@ -165,15 +174,15 @@ Also handy for querying data about the chain and managing local caches.</p>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="ape.networks">
-<span class="sig-prename descclassname"><span class="pre">ape.</span></span><span class="sig-name descname"><span class="pre">networks</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;NetworkManager</span> <span class="pre">active_provider=None&gt;</span></em><a class="headerlink" href="#ape.networks" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">ape.</span></span><span class="sig-name descname"><span class="pre">networks</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;NetworkManager&gt;</span></em><a class="headerlink" href="#ape.networks" title="Permalink to this definition"></a></dt>
 <dd><p>Manages the networks for the current project. See
 <a class="reference internal" href="managers.html#ape.managers.networks.NetworkManager" title="ape.managers.networks.NetworkManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.managers.networks.NetworkManager</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="ape.project">
-<span class="sig-prename descclassname"><span class="pre">ape.</span></span><span class="sig-name descname"><span class="pre">project</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;ape.managers.project.ProjectManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ape.project" title="Permalink to this definition"></a></dt>
-<dd><p>The currently active project. See <a class="reference internal" href="managers.html#ape.managers.project.ProjectManager" title="ape.managers.project.ProjectManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.managers.project.ProjectManager</span></code></a>.</p>
+<span class="sig-prename descclassname"><span class="pre">ape.</span></span><span class="sig-name descname"><span class="pre">project</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;ape.managers.project.manager.ProjectManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ape.project" title="Permalink to this definition"></a></dt>
+<dd><p>The currently active project. See <code class="xref py py-class docutils literal notranslate"><span class="pre">ape.managers.project.ProjectManager</span></code>.</p>
 </dd></dl>
 
 </section>

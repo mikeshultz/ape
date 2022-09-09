@@ -6,11 +6,20 @@
    :maxdepth: 1
 
    userguides/quickstart
+   userguides/accounts
+   userguides/installing_plugins
    userguides/projects
-   userguides/plugins
+   userguides/compile
+   userguides/cache
+   userguides/networks
+   userguides/developing_plugins
    userguides/config
    userguides/transactions
    userguides/console
+   userguides/contracts
+   userguides/testing
+   userguides/scripts
+   userguides/publishing
 ```
 
 ```{eval-rst}

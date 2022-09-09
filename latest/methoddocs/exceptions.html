@@ -61,11 +61,20 @@
               <p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/installing_plugins.html">Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/projects.html">Developing Projects with Ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../userguides/plugins.html">Developing Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/compile.html">Compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/cache.html">Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/networks.html">Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/developing_plugins.html">Developing Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/config.html">Configure Ape</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/transactions.html">Making Transactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/console.html">Ape Console</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/scripts.html">Scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/publishing.html">Publishing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLI Reference</span></p>
 <ul>
@@ -119,17 +128,17 @@
   <section id="module-ape.exceptions">
 <span id="ape-exceptions"></span><h1>ape.exceptions<a class="headerlink" href="#module-ape.exceptions" title="Permalink to this headline"></a></h1>
 <dl class="py exception">
+<dt class="sig sig-object py" id="ape.exceptions.APINotImplementedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ape.exceptions.</span></span><span class="sig-name descname"><span class="pre">APINotImplementedError</span></span><a class="headerlink" href="#ape.exceptions.APINotImplementedError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ape.exceptions.ApeException" title="ape.exceptions.ApeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.exceptions.ApeException</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NotImplementedError</span></code></p>
+<p>An error raised when an API class does not implement an abstract method.</p>
+</dd></dl>
+
+<dl class="py exception">
 <dt class="sig sig-object py" id="ape.exceptions.AccountsError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ape.exceptions.</span></span><span class="sig-name descname"><span class="pre">AccountsError</span></span><a class="headerlink" href="#ape.exceptions.AccountsError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#ape.exceptions.ApeException" title="ape.exceptions.ApeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.exceptions.ApeException</span></code></a></p>
 <p>Raised when a problem occurs when using accounts.</p>
-</dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="ape.exceptions.AddressError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ape.exceptions.</span></span><span class="sig-name descname"><span class="pre">AddressError</span></span><a class="headerlink" href="#ape.exceptions.AddressError" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ape.exceptions.ApeException" title="ape.exceptions.ApeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.exceptions.ApeException</span></code></a></p>
-<p>Raised when a problem occurs regarding an address.</p>
 </dd></dl>
 
 <dl class="py exception">
@@ -186,8 +195,7 @@ that already maps to another account.</p>
 <dt class="sig sig-object py" id="ape.exceptions.ContractError">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ape.exceptions.</span></span><span class="sig-name descname"><span class="pre">ContractError</span></span><a class="headerlink" href="#ape.exceptions.ContractError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#ape.exceptions.ApeException" title="ape.exceptions.ApeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.exceptions.ApeException</span></code></a></p>
-<p>Raised when issues occur when interacting with a contract
-(calls or transactions).</p>
+<p>Raised when issues occur with contracts.</p>
 </dd></dl>
 
 <dl class="py exception">
