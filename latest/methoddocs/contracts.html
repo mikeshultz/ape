@@ -50,6 +50,11 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.7.10">v0.7.10</option>
+                <option value="v0.7.9">v0.7.9</option>
+                <option value="v0.7.8">v0.7.8</option>
+                <option value="v0.7.7">v0.7.7</option>
+                <option value="v0.7.6">v0.7.6</option>
                 <option value="v0.7.5">v0.7.5</option>
                 <option value="v0.7.4">v0.7.4</option>
                 <option value="v0.7.3">v0.7.3</option>
@@ -142,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../userguides/clis.html">CLIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/data.html">Querying Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/networks.html">Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/forking_networks.html">Forking Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/developing_plugins.html">Developing Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/config.html">Configure Ape</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/transactions.html">Making Transactions</a></li>
@@ -168,11 +174,14 @@
 <p class="caption" role="heading"><span class="caption-text">Python Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ape.html">ape</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ape_accounts.html">ape-accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">ape.api</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">ape.cli</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ape.contracts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ape.contracts.base.ContractTypeWrapper"><code class="docutils literal notranslate"><span class="pre">ContractTypeWrapper</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractTypeWrapper.decode_input"><code class="docutils literal notranslate"><span class="pre">ContractTypeWrapper.decode_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractTypeWrapper.identifier_lookup"><code class="docutils literal notranslate"><span class="pre">ContractTypeWrapper.identifier_lookup</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractTypeWrapper.selector_identifiers"><code class="docutils literal notranslate"><span class="pre">ContractTypeWrapper.selector_identifiers</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractTypeWrapper.source_path"><code class="docutils literal notranslate"><span class="pre">ContractTypeWrapper.source_path</span></code></a></li>
 </ul>
 </li>
@@ -265,6 +274,20 @@ index as its key.</p>
 <dd class="field-odd"><p>Tuple[str, Dict[str, Any]]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ape.contracts.base.ContractTypeWrapper.identifier_lookup">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifier_lookup</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ConstructorABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MethodABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">EventABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">StructABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ErrorABI</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.identifier_lookup" title="Permalink to this definition"></a></dt>
+<dd><p>Provides a mapping of method, error, and event selector identifiers to
+ABI Types.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ape.contracts.base.ContractTypeWrapper.selector_identifiers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selector_identifiers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.selector_identifiers" title="Permalink to this definition"></a></dt>
+<dd><p>Provides a mapping of function signatures (pre-hashed selectors) to
+selector identifiers.</p>
 </dd></dl>
 
 <dl class="py property">
