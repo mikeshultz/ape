@@ -50,6 +50,7 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.7.19">v0.7.19</option>
                 <option value="v0.7.18">v0.7.18</option>
                 <option value="v0.7.17">v0.7.17</option>
                 <option value="v0.7.16">v0.7.16</option>
@@ -490,7 +491,7 @@ Here is an example with custom EIP-712 classes:</p>
     <span class="n">sender</span><span class="p">:</span> <span class="n">Person</span>
     <span class="n">receiver</span><span class="p">:</span> <span class="n">Person</span>
 
-<span class="n">alice</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">wallet</span><span class="o">=</span><span class="s2">&quot;0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826&quot;</span><span class="p">)</span> 
+<span class="n">alice</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">wallet</span><span class="o">=</span><span class="s2">&quot;0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826&quot;</span><span class="p">)</span>
 <span class="n">bob</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;0xB0B0b0b0b0b0B000000000000000000000000000&quot;</span><span class="p">)</span>
 <span class="n">message</span> <span class="o">=</span> <span class="n">Mail</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">alice</span><span class="p">,</span> <span class="n">receiver</span><span class="o">=</span><span class="n">bob</span><span class="p">)</span>
 

@@ -53,7 +53,6 @@ You can use already-downloaded projects as dependencies by referencing them as l
 dependencies:
   - name: MyDependency
     local: local/path/to/MyDependency
-    contracts_folder: src/contracts
 ```
 
 This is helpful when:
@@ -141,6 +140,15 @@ For `npm` dependencies, you use an `npm:` prefix.
 For local dependencies, you give it a path to the local dependency.
 `--version` is not required when using a local dependency.
 
+To change the config of a dependency when installing, use the `--config-override` CLI option:
+
+```shell
+ape pm install gh:OpenZeppelin/openzeppelin-contracts \
+  --name openzeppelin \
+  --version "4.6.0" \
+  --config-override '{"solidity": {"version": "0.8.12"}}'
+```
+
 ### remove
 
 Remove previously installed packages using the `remove` command:
@@ -197,31 +205,6 @@ ape compile --include-dependencies
 
 The following guidelines are applicable to **ALL** dependency types.
 
-### Custom Contracts Folder
-
-You can set the name of the dependency's contracts folder, e.g.:
-
-```yaml
-dependencies:
-  - name: DappToolsERC20
-    github: dapphub/erc20
-    ref: dappnix
-    contracts_folder: src
-```
-
-### File Exclusions
-
-To ignore files from a dependency project, use the `exclude` setting to specify glob patterns:
-
-```yaml
-dependencies:
-  - name: dependency-project-name
-    github: org-name/dependency-project-name
-    exclude:
-      - package.json    # Ignore package.json files.
-      - mocks/**/*      # Ignore all files in the 'mocks' directory
-```
-
 ### Config Override
 
 To use any extra config item for a dependency, such as configurations for compilers needed during compiling, use the `config_override` setting:
@@ -233,6 +216,36 @@ dependencies:
     config_override:
        solidity:
          evm_version: paris
+```
+
+This is the same as if these values were in an `ape-config.yaml` file in the project directly.
+
+### Custom Contracts Folder
+
+You can set the name of the dependency's contracts folder using the `config_override` key, e.g.:
+
+```yaml
+dependencies:
+  - name: DappToolsERC20
+    github: dapphub/erc20
+    ref: dappnix
+    config_override:
+      contracts_folder: src
+```
+
+### File Exclusions
+
+To ignore files from a dependency project, use the `exclude` setting in the `config_override:compile` section to specify glob patterns:
+
+```yaml
+dependencies:
+  - name: dependency-project-name
+    github: org-name/dependency-project-name
+    config_override:
+      compile:
+        exclude:
+          - package.json    # Ignore package.json files.
+          - mocks/**/*      # Ignore all files in the 'mocks' directory
 ```
 
 ### Solidity Remappings

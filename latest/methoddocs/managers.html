@@ -50,6 +50,7 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.7.19">v0.7.19</option>
                 <option value="v0.7.18">v0.7.18</option>
                 <option value="v0.7.17">v0.7.17</option>
                 <option value="v0.7.16">v0.7.16</option>
@@ -214,6 +215,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.compilers.CompilerManager.compile_source"><code class="docutils literal notranslate"><span class="pre">CompilerManager.compile_source()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.compilers.CompilerManager.enrich_error"><code class="docutils literal notranslate"><span class="pre">CompilerManager.enrich_error()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.compilers.CompilerManager.flatten_contract"><code class="docutils literal notranslate"><span class="pre">CompilerManager.flatten_contract()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ape.managers.compilers.CompilerManager.get_custom_error"><code class="docutils literal notranslate"><span class="pre">CompilerManager.get_custom_error()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.compilers.CompilerManager.get_imports"><code class="docutils literal notranslate"><span class="pre">CompilerManager.get_imports()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.compilers.CompilerManager.get_references"><code class="docutils literal notranslate"><span class="pre">CompilerManager.get_references()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.compilers.CompilerManager.registered_compilers"><code class="docutils literal notranslate"><span class="pre">CompilerManager.registered_compilers</span></code></a></li>
@@ -404,7 +406,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-ape.managers.project.manager">Project</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ape.managers.project.manager.ProjectManager"><code class="docutils literal notranslate"><span class="pre">ProjectManager</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ape.managers.project.manager.ProjectManager.__getattr__"><code class="docutils literal notranslate"><span class="pre">ProjectManager.__getattr__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.project.manager.ProjectManager.__str__"><code class="docutils literal notranslate"><span class="pre">ProjectManager.__str__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.project.manager.ProjectManager.compiler_cache_folder"><code class="docutils literal notranslate"><span class="pre">ProjectManager.compiler_cache_folder</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ape.managers.project.manager.ProjectManager.compiler_data"><code class="docutils literal notranslate"><span class="pre">ProjectManager.compiler_data</span></code></a></li>
@@ -809,6 +810,22 @@ Delegates to the matching <code class="xref py py-class docutils literal notrans
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">ethpm_types.source.Content</span></code></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ape.managers.compilers.CompilerManager.get_custom_error">
+<span class="sig-name descname"><span class="pre">get_custom_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="exceptions.html#ape.exceptions.ContractLogicError" title="ape.exceptions.ContractLogicError"><span class="pre">ContractLogicError</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="exceptions.html#ape.exceptions.CustomError" title="ape.exceptions.CustomError"><span class="pre">CustomError</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#ape.managers.compilers.CompilerManager.get_custom_error" title="Permalink to this definition"></a></dt>
+<dd><p>Get a custom error for the given contract logic error using the contract-type
+found from address-data in the error. Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the given error is
+not a custom-error or it is not able to find the associated contract type or
+address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>err</strong> (<a class="reference internal" href="exceptions.html#ape.exceptions.ContractLogicError" title="ape.exceptions.ContractLogicError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractLogicError</span></code></a>) – The error to enrich
+as a custom error.</p>
+</dd>
+</dl>
+<p>Returns:</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1227,7 +1244,7 @@ either from a local cache, a disk cache, or the provider.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ape.managers.chain.ContractCache.instance_at">
-<span class="sig-name descname"><span class="pre">instance_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ChecksumAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contract_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ContractType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">txn_hash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ConstructorABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">FallbackABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ReceiveABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MethodABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">EventABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ErrorABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">StructABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">UnprocessedABI</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="contracts.html#ape.contracts.base.ContractInstance" title="ape.contracts.base.ContractInstance"><span class="pre">ContractInstance</span></a></span></span><a class="headerlink" href="#ape.managers.chain.ContractCache.instance_at" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">instance_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ChecksumAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contract_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ContractType</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">txn_hash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">HexBytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ConstructorABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">FallbackABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ReceiveABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MethodABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">EventABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ErrorABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">StructABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">UnprocessedABI</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="contracts.html#ape.contracts.base.ContractInstance" title="ape.contracts.base.ContractInstance"><span class="pre">ContractInstance</span></a></span></span><a class="headerlink" href="#ape.managers.chain.ContractCache.instance_at" title="Permalink to this definition"></a></dt>
 <dd><p>Get a contract at the given address. If the contract type of the contract is known,
 either from a local deploy or a <a class="reference internal" href="api.html#ape.api.explorers.ExplorerAPI" title="ape.api.explorers.ExplorerAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExplorerAPI</span></code></a>, it will use that
 contract type. You can also provide the contract type from which it will cache and use
@@ -1246,8 +1263,8 @@ next time.</p>
 plugin, you can also provide an ENS domain name.</p></li>
 <li><p><strong>contract_type</strong> (Optional[<code class="docutils literal notranslate"><span class="pre">ContractType</span></code>]) – Optionally provide the contract type
 in case it is not already known.</p></li>
-<li><p><strong>txn_hash</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The hash of the transaction responsible for deploying the
-contract, if known. Useful for publishing. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>txn_hash</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>HexBytes</em><em>]</em><em>]</em>) – The hash of the transaction responsible for
+deploying the contract, if known. Useful for publishing. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p><strong>abi</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>List</em><em>[</em><em>ABI</em><em>]</em><em>, </em><em>Dict</em><em>, </em><em>str</em><em>, </em><a class="reference internal" href="cli.html#ape.cli.paramtype.Path" title="ape.cli.paramtype.Path"><em>Path</em></a><em>]</em><em>]</em>) – Use an ABI str, dict, path,
 or ethpm models to create a contract instance class.</p></li>
 </ul>
@@ -2530,34 +2547,6 @@ this class uninitialized.</p>
 <span class="n">contract_type</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">MyContactType</span>
 </pre></div>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="ape.managers.project.manager.ProjectManager.__getattr__">
-<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#ape.managers.project.manager.ProjectManager.__getattr__" title="Permalink to this definition"></a></dt>
-<dd><p>Get a contract container from an existing contract type in
-the local project using <code class="docutils literal notranslate"><span class="pre">.</span></code> access.</p>
-<p><strong>NOTE</strong>: To get a dependency contract, use
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">dependencies</span></code>.</p>
-<p>Usage example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ape</span> <span class="kn">import</span> <span class="n">project</span>
-
-<span class="n">contract</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">MyContract</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#ape.exceptions.ApeAttributeError" title="ape.exceptions.ApeAttributeError"><strong>ApeAttributeError</strong></a> – When the given name is not
-    a contract in the project.</p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>attr_name</strong> (<em>str</em>) – The name of the contract in the project.</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractContainer</span></code>,
-a <code class="xref py py-class docutils literal notranslate"><span class="pre">ContractNamespace</span></code>, or any attribute.</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="ape.managers.project.manager.ProjectManager.__str__">
 <span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ape.managers.project.manager.ProjectManager.__str__" title="Permalink to this definition"></a></dt>

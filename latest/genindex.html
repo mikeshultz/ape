@@ -47,6 +47,7 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.7.19">v0.7.19</option>
                 <option value="v0.7.18">v0.7.18</option>
                 <option value="v0.7.17">v0.7.17</option>
                 <option value="v0.7.16">v0.7.16</option>
@@ -257,6 +258,13 @@
         <li><a href="commands/plugins.html#cmdoption-plugins-list-a">plugins-list command line option</a>
 </li>
         <li><a href="commands/pm.html#cmdoption-pm-list-all">pm-list command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --config-override
+
+      <ul>
+        <li><a href="commands/pm.html#cmdoption-pm-install-config-override">pm-install command line option</a>
 </li>
       </ul></li>
       <li>
@@ -572,7 +580,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="methoddocs/api.html#ape.api.networks.EcosystemAPI.__ape_extra_attributes__">__ape_extra_attributes__() (ape.api.networks.EcosystemAPI method)</a>
+
+      <ul>
+        <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractContainer.__ape_extra_attributes__">(ape.contracts.base.ContractContainer method)</a>
 </li>
+      </ul></li>
       <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractContainer.__call__">__call__() (ape.contracts.base.ContractContainer method)</a>
 
       <ul>
@@ -601,16 +613,8 @@
         <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractInstance.__dir__">(ape.contracts.base.ContractInstance method)</a>
 </li>
       </ul></li>
-      <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractContainer.__getattr__">__getattr__() (ape.contracts.base.ContractContainer method)</a>
-
-      <ul>
-        <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractInstance.__getattr__">(ape.contracts.base.ContractInstance method)</a>
+      <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractContainer.__eq__">__eq__() (ape.contracts.base.ContractContainer method)</a>
 </li>
-        <li><a href="methoddocs/managers.html#ape.managers.project.manager.ProjectManager.__getattr__">(ape.managers.project.manager.ProjectManager method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="methoddocs/api.html#ape.api.accounts.AccountContainerAPI.__getitem__">__getitem__() (ape.api.accounts.AccountContainerAPI method)</a>
 
       <ul>
@@ -619,6 +623,10 @@
         <li><a href="methoddocs/managers.html#ape.managers.chain.BlockContainer.__getitem__">(ape.managers.chain.BlockContainer method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractContainer.__hash__">__hash__ (ape.contracts.base.ContractContainer attribute)</a>
+</li>
       <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractEvent.__iter__">__iter__() (ape.contracts.base.ContractEvent method)</a>
 
       <ul>
@@ -656,6 +664,8 @@
       <li><a href="methoddocs/cli.html#ape.cli.options.ApeCliContextObject.abort">abort() (ape.cli.options.ApeCliContextObject static method)</a>
 </li>
       <li><a href="methoddocs/cli.html#ape.cli.options.account_option">account_option() (in module ape.cli.options)</a>
+</li>
+      <li><a href="methoddocs/api.html#ape.api.accounts.AccountContainerAPI.account_type">account_type (ape.api.accounts.AccountContainerAPI attribute)</a>
 </li>
       <li><a href="methoddocs/plugins.html#ape.plugins.account.AccountPlugin.account_types">account_types() (ape.plugins.account.AccountPlugin method)</a>
 </li>
@@ -1428,6 +1438,8 @@
 </li>
         <li><a href="methoddocs/cli.html#ape.cli.paramtype.AllFilePaths.convert">(ape.cli.paramtype.AllFilePaths method)</a>
 </li>
+        <li><a href="methoddocs/cli.html#ape.cli.paramtype.JSON.convert">(ape.cli.paramtype.JSON method)</a>
+</li>
         <li><a href="methoddocs/managers.html#ape.managers.converters.AccountIntConverter.convert">(ape.managers.converters.AccountIntConverter method)</a>
 </li>
         <li><a href="methoddocs/managers.html#ape.managers.converters.AddressAPIConverter.convert">(ape.managers.converters.AddressAPIConverter method)</a>
@@ -1472,6 +1484,8 @@
 </li>
       </ul></li>
       <li><a href="methoddocs/api.html#ape.api.networks.create_network_type">create_network_type() (in module ape.api.networks)</a>
+</li>
+      <li><a href="methoddocs/utils.html#ape.utils.create_tempdir">create_tempdir() (in module ape.utils)</a>
 </li>
       <li><a href="methoddocs/api.html#ape.api.networks.EcosystemAPI.create_transaction">create_transaction() (ape.api.networks.EcosystemAPI method)</a>
 </li>
@@ -1798,16 +1812,18 @@
 </li>
       <li><a href="methoddocs/utils.html#ape.utils.get_current_timestamp_ms">get_current_timestamp_ms() (in module ape.utils)</a>
 </li>
+      <li><a href="methoddocs/managers.html#ape.managers.compilers.CompilerManager.get_custom_error">get_custom_error() (ape.managers.compilers.CompilerManager method)</a>
+</li>
       <li><a href="methoddocs/managers.html#ape.managers.chain.ContractCache.get_deployments">get_deployments() (ape.managers.chain.ContractCache method)</a>
 </li>
       <li><a href="methoddocs/managers.html#ape.managers.networks.NetworkManager.get_ecosystem">get_ecosystem() (ape.managers.networks.NetworkManager method)</a>
 </li>
       <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractInstance.get_error_by_signature">get_error_by_signature() (ape.contracts.base.ContractInstance method)</a>
 </li>
-      <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractInstance.get_event_by_signature">get_event_by_signature() (ape.contracts.base.ContractInstance method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="methoddocs/contracts.html#ape.contracts.base.ContractInstance.get_event_by_signature">get_event_by_signature() (ape.contracts.base.ContractInstance method)</a>
+</li>
       <li><a href="methoddocs/types.html#ape.types.coverage.CoverageReport.get_html">get_html() (ape.types.coverage.CoverageReport method)</a>
 </li>
       <li><a href="methoddocs/managers.html#ape.managers.compilers.CompilerManager.get_imports">get_imports() (ape.managers.compilers.CompilerManager method)</a>
@@ -2030,6 +2046,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="methoddocs/utils.html#ape.utils.JoinableQueue">JoinableQueue (class in ape.utils)</a>
+</li>
+      <li><a href="methoddocs/cli.html#ape.cli.paramtype.JSON">JSON (class in ape.cli.paramtype)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2656,6 +2674,8 @@
     pm-install command line option
 
       <ul>
+        <li><a href="commands/pm.html#cmdoption-pm-install-config-override">--config-override</a>
+</li>
         <li><a href="commands/pm.html#cmdoption-pm-install-f">--force</a>
 </li>
         <li><a href="commands/pm.html#cmdoption-pm-install-name">--name</a>
@@ -2866,10 +2886,10 @@
 </li>
       <li><a href="methoddocs/api.html#ape.api.accounts.AccountContainerAPI.remove">remove() (ape.api.accounts.AccountContainerAPI method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="methoddocs/api.html#ape.api.projects.ProjectAPI.replace_manifest">replace_manifest() (ape.api.projects.ProjectAPI method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="methoddocs/api.html#ape.api.networks.EcosystemAPI.request_header">request_header (ape.api.networks.EcosystemAPI attribute)</a>
 
       <ul>
@@ -2907,6 +2927,8 @@
         <li><a href="commands/run.html#cmdoption-run-I">-I</a>
 </li>
       </ul></li>
+      <li><a href="methoddocs/utils.html#ape.utils.run_in_tempdir">run_in_tempdir() (in module ape.utils)</a>
+</li>
       <li><a href="methoddocs/utils.html#ape.utils.run_until_complete">run_until_complete() (in module ape.utils)</a>
 </li>
   </ul></td>
