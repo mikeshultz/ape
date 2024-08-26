@@ -74,7 +74,7 @@ To specify the network option, use values like:
 ```
 
 To use default values automatically, omit sections of the choice, but leave the semi-colons for parsing.
-For example, `::test` means use the default ecosystem and network and the `test` provider.
+For example, `::test` means to use the default ecosystem and network and the `test` provider.
 
 Use `ecosystem`, `network`, and `provider` argument names in your command implementation to access their corresponding class instances:
 
@@ -105,17 +105,21 @@ Additionally, specify `ecosystem`, `network`, or `provider` in your command func
 import click
 from ape.cli import ConnectedProviderCommand
 
-@click.command(cls=ConnectedProviderCommand)
-def cmd(network, provider):
+@click.group()
+def cli():
+    pass
+
+ @cli.command(cls=ConnectedProviderCommand)
+def cmd_1(network, provider):
    click.echo(network.name)
    click.echo(provider.is_connected)  # True
 
-@click.command(cls=ConnectedProviderCommand)
-def cmd(provider):
+ @cli.command(cls=ConnectedProviderCommand)
+def cmd_2(provider):
    click.echo(provider.is_connected)  # True
 
-@click.command(cls=ConnectedProviderCommand)
-def cmd():
+ @cli.command(cls=ConnectedProviderCommand)
+def cmd_3():
    click.echo("Using params from ConnectedProviderCommand is optional")
 ```
 
@@ -150,12 +154,12 @@ And when invoking the command from the CLI, it would look like the following:
 
 ```shell
 <prefix> cmd  # Use the default account.
-<prefix> cmd --account 0  # Use first account that would show up in `get_user_selected_account()`.
+<prefix> cmd --account 0  # Use first account that would show up in `select_account()`.
 <prefix> cmd --account metamask  # Use account with alias "metamask".
 <prefix> cmd --account TEST::0  # Use the test account at index 0.
 ```
 
-Alternatively, you can call the [get_user_selected_account()](../methoddocs/cli.html#ape.cli.choices.get_user_selected_account) directly to have more control of when the account gets selected:
+Alternatively, you can call the [select_account()](../methoddocs/cli.html#ape.cli.choices.select_account) directly to have more control of when the account gets selected:
 
 ```python
 import click
@@ -197,7 +201,7 @@ Use `account_type` to filter the choices by specific types of [AccountAPI](../me
 ```python
 import click
 from ape import accounts
-from ape.cli import existing_alias_argument, get_user_selected_account
+from ape.cli import existing_alias_argument, select_account
 from ape_accounts.accounts import KeyfileAccount
 
 # NOTE: This is just an example and not anything specific or recommended.
@@ -215,7 +219,7 @@ def cli_1(alias):
 
 # Select from the given accounts directly.
 my_accounts = [accounts.load("me"), accounts.load("me2")]
-selected_account = get_user_selected_account(account_type=my_accounts)
+selected_account = select_account(account_type=my_accounts)
 ```
 
 ## Contract File Paths

@@ -27,7 +27,7 @@
   </script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Proxy Contracts" href="proxy.html" />
+    <link rel="next" title="Reverts" href="reverts.html" />
     <link rel="prev" title="Ape Console" href="console.html" /> 
 </head>
 
@@ -50,6 +50,23 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.8.12">v0.8.12</option>
+                <option value="v0.8.11">v0.8.11</option>
+                <option value="v0.8.10">v0.8.10</option>
+                <option value="v0.8.9">v0.8.9</option>
+                <option value="v0.8.8">v0.8.8</option>
+                <option value="v0.8.7">v0.8.7</option>
+                <option value="v0.8.6">v0.8.6</option>
+                <option value="v0.8.5">v0.8.5</option>
+                <option value="v0.8.4">v0.8.4</option>
+                <option value="v0.8.3">v0.8.3</option>
+                <option value="v0.8.2">v0.8.2</option>
+                <option value="v0.8.1">v0.8.1</option>
+                <option value="v0.8.0">v0.8.0</option>
+                <option value="v0.7.23">v0.7.23</option>
+                <option value="v0.7.22">v0.7.22</option>
+                <option value="v0.7.21">v0.7.21</option>
+                <option value="v0.7.20">v0.7.20</option>
                 <option value="v0.7.19">v0.7.19</option>
                 <option value="v0.7.18">v0.7.18</option>
                 <option value="v0.7.17">v0.7.17</option>
@@ -158,7 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="forking_networks.html">Forking Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developing_plugins.html">Developing Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configure Ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transactions.html">Making Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">Transactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="console.html">Ape Console</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contracts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#from-deploy">From Deploy</a><ul>
@@ -183,11 +200,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#multi-call-and-multi-transaction">Multi-Call and Multi-Transaction</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="reverts.html">Reverts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="proxy.html">Proxy Contracts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scripts.html">Scripting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trace.html">Traces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLI Reference</span></p>
 <ul>
@@ -201,10 +220,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../commands/run.html">run</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands/test.html">test</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Python Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Python Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape.html">ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_accounts.html">ape-accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/api.html">ape.api</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/cli.html">ape.cli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/contracts.html">ape.contracts</a></li>
@@ -213,6 +231,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/plugins.html">ape.plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/types.html">ape.types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/utils.html">ape.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin Python Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_accounts.html">ape-accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_compile.html">ape-compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_ethereum.html">ape-ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_ethereum.html#module-ape_ethereum.multicall">ape-ethereum.multicall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_node.html">ape-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_pm.html">ape-pm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_test.html">ape-test</a></li>
 </ul>
 
         </div>
@@ -249,7 +277,10 @@ The other way is to initialize an already-deployed contract using its address.</
 <h2>From Deploy<a class="headerlink" href="#from-deploy" title="Permalink to this heading"></a></h2>
 <p>Deploy contracts from your project using the <code class="docutils literal notranslate"><span class="pre">project</span></code> root-level object.
 You deploy contracts using Python functions such as <a class="reference external" href="../methoddocs/api.html#ape.api.accounts.AccountAPI.deploy">AccountAPI.deploy</a> or <a class="reference external" href="../methoddocs/contracts.html#ape.contracts.base.ContractContainer.deploy">ContractContainer.deploy</a>.</p>
-<p><strong>NOTE</strong>: You can run Ape’s deploy functions from anywhere you run Python!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can run Ape’s deploy functions anywhere you run Python!</p>
+</div>
 <p>You need both an account and a contract in order to deploy a contract, as the deployment process requires a transaction to submit the contract data to the blockchain.
 To learn about accounts and how to use them, see the <a class="reference external" href="./accounts.html">Accounts Guide</a>.
 You also need the contract.
@@ -303,7 +334,7 @@ Simply copy your Python logic into an Ape script and run it via:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ape<span class="w"> </span>run<span class="w"> </span>&lt;my-deploy-script&gt;
 </pre></div>
 </div>
-<p>Learn how to do this and scripting in its entirity by reviewing <a class="reference external" href="./scripts.html">the scripting user-guide</a>.</p>
+<p>Learn how to do this and scripting in its entirety by reviewing <a class="reference external" href="./scripts.html">the scripting user-guide</a>.</p>
 <p><strong>There is no root <code class="docutils literal notranslate"><span class="pre">ape</span></code> command to deploy contracts; only the scripting-system, the <code class="docutils literal notranslate"><span class="pre">console</span></code>, or merely using Ape as a Python library</strong>.</p>
 <p>If your deployment process is simple or only needs to happen once, it is easy to use <code class="docutils literal notranslate"><span class="pre">ape</span> <span class="pre">console</span></code> to achieve a deployment.
 More information on how to use <code class="docutils literal notranslate"><span class="pre">ape</span> <span class="pre">console</span></code> can be found <a class="reference external" href="./console.html">here</a>.</p>
@@ -448,10 +479,16 @@ For this guide, assume we are using the default transaction type in Ape for Ethe
 </pre></div>
 </div>
 <p>Notice that transacting returns a <a class="reference external" href="../methoddocs/api.html#ape.api.transactions.ReceiptAPI">ReceiptAPI</a> object which contains all the receipt data, such as <code class="docutils literal notranslate"><span class="pre">gas_used</span></code>.</p>
-<p><strong>NOTE</strong>: If you need the <code class="docutils literal notranslate"><span class="pre">return_value</span></code> from a transaction, you have to either treat transaction as a call (see the section below!) or use a provider with tracing-features enabled (such as <code class="docutils literal notranslate"><span class="pre">ape-foundry</span></code> or <code class="docutils literal notranslate"><span class="pre">ape-geth</span></code>) and access the <a class="reference external" href="../methoddocs/api.html#ape.api.transactions.ReceiptAPI.return_value">return_value</a> property on the receipt.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need the <code class="docutils literal notranslate"><span class="pre">return_value</span></code> from a transaction, you have to either treat transaction as a call (see the section below!) or use a provider with tracing-features enabled (such as <code class="docutils literal notranslate"><span class="pre">ape-foundry</span></code> or <code class="docutils literal notranslate"><span class="pre">ape-node</span></code>) and access the <a class="reference external" href="../methoddocs/api.html#ape.api.transactions.ReceiptAPI.return_value">return_value</a> property on the receipt.</p>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">receipt</span><span class="o">.</span><span class="n">return_value</span> <span class="o">==</span> <span class="mi">123</span>
 </pre></div>
 </div>
+<p>Transactions may also fail, known as a “revert”.
+When a transaction reverts, Ape (by default) raises a subclass of <code class="docutils literal notranslate"><span class="pre">TransactionError</span></code>, which is a Python exception.
+To learn more reverts, see the <a class="reference external" href="./reverts.html">reverts guide</a>.</p>
 <p>For more general information on transactions in the Ape framework, see <a class="reference external" href="./transactions.html">this guide</a>.</p>
 </section>
 <section id="calls">
@@ -631,7 +668,7 @@ Multicall allows you to group function calls and transactions into a single call
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="console.html" class="btn btn-neutral float-left" title="Ape Console" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="proxy.html" class="btn btn-neutral float-right" title="Proxy Contracts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="reverts.html" class="btn btn-neutral float-right" title="Reverts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -50,6 +50,23 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.8.12">v0.8.12</option>
+                <option value="v0.8.11">v0.8.11</option>
+                <option value="v0.8.10">v0.8.10</option>
+                <option value="v0.8.9">v0.8.9</option>
+                <option value="v0.8.8">v0.8.8</option>
+                <option value="v0.8.7">v0.8.7</option>
+                <option value="v0.8.6">v0.8.6</option>
+                <option value="v0.8.5">v0.8.5</option>
+                <option value="v0.8.4">v0.8.4</option>
+                <option value="v0.8.3">v0.8.3</option>
+                <option value="v0.8.2">v0.8.2</option>
+                <option value="v0.8.1">v0.8.1</option>
+                <option value="v0.8.0">v0.8.0</option>
+                <option value="v0.7.23">v0.7.23</option>
+                <option value="v0.7.22">v0.7.22</option>
+                <option value="v0.7.21">v0.7.21</option>
+                <option value="v0.7.20">v0.7.20</option>
                 <option value="v0.7.19">v0.7.19</option>
                 <option value="v0.7.18">v0.7.18</option>
                 <option value="v0.7.17">v0.7.17</option>
@@ -170,14 +187,16 @@
 <li class="toctree-l1"><a class="reference internal" href="forking_networks.html">Forking Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developing_plugins.html">Developing Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configure Ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transactions.html">Making Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">Transactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="console.html">Ape Console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverts.html">Reverts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="proxy.html">Proxy Contracts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scripts.html">Scripting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trace.html">Traces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLI Reference</span></p>
 <ul>
@@ -191,10 +210,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../commands/run.html">run</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands/test.html">test</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Python Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Python Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape.html">ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_accounts.html">ape-accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/api.html">ape.api</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/cli.html">ape.cli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/contracts.html">ape.contracts</a></li>
@@ -203,6 +221,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/plugins.html">ape.plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/types.html">ape.types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/utils.html">ape.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin Python Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_accounts.html">ape-accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_compile.html">ape-compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_ethereum.html">ape-ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_ethereum.html#module-ape_ethereum.multicall">ape-ethereum.multicall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_node.html">ape-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_pm.html">ape-pm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_test.html">ape-test</a></li>
 </ul>
 
         </div>
@@ -252,7 +280,7 @@ With our <a class="reference external" href="#plugin-system">modular plugin syst
 <p>In the latest release, Ape requires:</p>
 <ul class="simple">
 <li><p>Linux or macOS</p></li>
-<li><p>Python 3.8 up to 3.12</p></li>
+<li><p>Python 3.9 up to 3.12</p></li>
 <li><p><strong>Windows</strong>: Install Windows Subsystem Linux <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">(WSL)</a></p></li>
 </ul>
 <p>Check your python version in a terminal with <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code>.</p>
@@ -284,7 +312,24 @@ With our <a class="reference external" href="#plugin-system">modular plugin syst
 <section id="installing-with-docker">
 <h3>Installing with <code class="docutils literal notranslate"><span class="pre">docker</span></code><a class="headerlink" href="#installing-with-docker" title="Permalink to this heading"></a></h3>
 <p>Ape can also run in a docker container.</p>
-<p>Please visit our <a class="reference external" href="https://hub.docker.com/repository/docker/apeworx/ape">Dockerhub</a> for more details on using Ape with Docker.</p>
+<p>You can pull our images from <a class="reference external" href="https://ghcr.io/apeworx/ape">ghcr</a>.
+This image is built using our <code class="docutils literal notranslate"><span class="pre">recommended-plugins</span></code> extra, so it is a great starting point for running ape in a containerized environment.</p>
+<p>We also have a <code class="docutils literal notranslate"><span class="pre">slim</span></code> docker image that is built without any installed plugins.
+This image is meant for production support and must be further configured if any plugins are in use.</p>
+<p>You can pull the image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/apeworx/ape:latest<span class="w">  </span><span class="c1"># installs with recommended-plugins</span>
+</pre></div>
+</div>
+<p>or pull the slim if you have specific needs that you’d like to build from:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/apeworx/ape:latest-slim<span class="w">  </span><span class="c1"># installs ape with required packages</span>
+</pre></div>
+</div>
+<p>or build the image locally from source:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ape:latest-slim<span class="w"> </span>-f<span class="w"> </span>Dockerfile.slim<span class="w"> </span>.
+$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ape:latest<span class="w"> </span>.
+</pre></div>
+</div>
+<p>An example of running a command from the container would be:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/.ape:/home/harambe/.ape<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--volume<span class="w"> </span><span class="nv">$HOME</span>/.vvm:/home/harambe/.vvm<span class="w"> </span><span class="se">\</span>
@@ -293,6 +338,10 @@ With our <a class="reference external" href="#plugin-system">modular plugin syst
 <span class="w">  </span>apeworx/ape<span class="w"> </span>compile
 </pre></div>
 </div>
+<blockquote>
+<div><p><strong>Note:</strong>
+The above command requires the full install which includes <code class="docutils literal notranslate"><span class="pre">recommended-plugins</span></code> installation extra.</p>
+</div></blockquote>
 </section>
 </section>
 <section id="quickstart">
@@ -318,8 +367,11 @@ With our <a class="reference external" href="#plugin-system">modular plugin syst
 <li><p>Learn about <strong>installing</strong> plugins from following this <a class="reference external" href="https://docs.apeworx.io/ape/stable/userguides/installing_plugins.html">installing user guide</a>.</p></li>
 <li><p>Learn more about <strong>developing</strong> your own plugins from this <a class="reference external" href="https://docs.apeworx.io/ape/stable/userguides/developing_plugins.html">developing user guide</a>.</p></li>
 </ul>
-<p><strong>NOTE</strong>: If a plugin does not originate from the <a class="reference external" href="https://github.com/ApeWorX?q=ape&amp;amp;type=all">ApeWorX GitHub Organization</a>, you will get a warning about installing 3rd-party plugins.
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a plugin does not originate from the <a class="reference external" href="https://github.com/ApeWorX?q=ape&amp;amp;type=all">ApeWorX GitHub Organization</a>, you will get a warning about installing 3rd-party plugins.
 Install 3rd party plugins at your own risk.</p>
+</div>
 </section>
 </section>
 

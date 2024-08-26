@@ -50,6 +50,23 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.8.12">v0.8.12</option>
+                <option value="v0.8.11">v0.8.11</option>
+                <option value="v0.8.10">v0.8.10</option>
+                <option value="v0.8.9">v0.8.9</option>
+                <option value="v0.8.8">v0.8.8</option>
+                <option value="v0.8.7">v0.8.7</option>
+                <option value="v0.8.6">v0.8.6</option>
+                <option value="v0.8.5">v0.8.5</option>
+                <option value="v0.8.4">v0.8.4</option>
+                <option value="v0.8.3">v0.8.3</option>
+                <option value="v0.8.2">v0.8.2</option>
+                <option value="v0.8.1">v0.8.1</option>
+                <option value="v0.8.0">v0.8.0</option>
+                <option value="v0.7.23">v0.7.23</option>
+                <option value="v0.7.22">v0.7.22</option>
+                <option value="v0.7.21">v0.7.21</option>
+                <option value="v0.7.20">v0.7.20</option>
                 <option value="v0.7.19">v0.7.19</option>
                 <option value="v0.7.18">v0.7.18</option>
                 <option value="v0.7.17">v0.7.17</option>
@@ -158,9 +175,10 @@
 <li class="toctree-l1"><a class="reference internal" href="forking_networks.html">Forking Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developing_plugins.html">Developing Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configure Ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transactions.html">Making Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">Transactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="console.html">Ape Console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverts.html">Reverts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="proxy.html">Proxy Contracts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Scripting</a><ul>
@@ -173,6 +191,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trace.html">Traces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLI Reference</span></p>
 <ul>
@@ -186,10 +205,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../commands/run.html">run</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands/test.html">test</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Python Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Python Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape.html">ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_accounts.html">ape-accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/api.html">ape.api</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/cli.html">ape.cli</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/contracts.html">ape.contracts</a></li>
@@ -198,6 +216,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/plugins.html">ape.plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/types.html">ape.types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methoddocs/utils.html">ape.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin Python Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_accounts.html">ape-accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_compile.html">ape-compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_ethereum.html">ape-ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_ethereum.html#module-ape_ethereum.multicall">ape-ethereum.multicall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_node.html">ape-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_pm.html">ape-pm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../methoddocs/ape_test.html">ape-test</a></li>
 </ul>
 
         </div>
@@ -251,8 +279,11 @@ For example, assuming we have script <code class="docutils literal notranslate">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ape<span class="w"> </span>run<span class="w"> </span>hello<span class="w"> </span>helloworld
 </pre></div>
 </div>
-<p><strong>Note</strong>: By default, <code class="docutils literal notranslate"><span class="pre">cli</span></code> scripts do not have <a class="reference external" href="../methoddocs/cli.html?highlight=options#ape.cli.options.network_option"><code class="docutils literal notranslate"><span class="pre">ape.cli.network_option</span></code></a> installed, giving you more flexibility in how you define your scripts.
-However, you can add the <code class="docutils literal notranslate"><span class="pre">network_option</span></code> or <code class="docutils literal notranslate"><span class="pre">ConnectedProviderCommand</span></code> to your scripts by importing them from the <code class="docutils literal notranslate"><span class="pre">ape.cli</span></code> namespace:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">cli</span></code> scripts do not have <a class="reference external" href="../methoddocs/cli.html?highlight=options#ape.cli.options.network_option"><code class="docutils literal notranslate"><span class="pre">ape.cli.network_option</span></code></a> installed, giving you more flexibility in how you define your scripts.</p>
+</div>
+<p>However, you can add the <code class="docutils literal notranslate"><span class="pre">network_option</span></code> or <code class="docutils literal notranslate"><span class="pre">ConnectedProviderCommand</span></code> to your scripts by importing them from the <code class="docutils literal notranslate"><span class="pre">ape.cli</span></code> namespace:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">click</span>
 <span class="kn">from</span> <span class="nn">ape.cli</span> <span class="kn">import</span> <span class="n">ConnectedProviderCommand</span>
 
@@ -286,11 +317,11 @@ To learn more about how to control the network-context in Ape Pythonically, see 
 
 <span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="nd">@ape_cli_context</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">cli</span><span class="p">(</span><span class="n">cli_ctx</span><span class="p">):</span>        
+<span class="k">def</span> <span class="nf">cli</span><span class="p">(</span><span class="n">cli_ctx</span><span class="p">):</span>
     <span class="c1"># There is no connection yet at this point.</span>
     <span class="n">testnets</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;ethereum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;sepolia&quot;</span><span class="p">,</span> <span class="s2">&quot;goerli&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;polygon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mumbai&quot;</span><span class="p">]</span>
+        <span class="s2">&quot;ethereum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;sepolia&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;polygon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;amoy&quot;</span><span class="p">]</span>
     <span class="p">}</span>
     <span class="n">nm</span> <span class="o">=</span> <span class="n">cli_ctx</span><span class="o">.</span><span class="n">network_manager</span>
 
@@ -322,9 +353,12 @@ To do this, define a method named <code class="docutils literal notranslate"><sp
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>NOTE</strong>: main-method scripts will always provide a <code class="docutils literal notranslate"><span class="pre">--network</span></code> option and run in a connected-context.
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>main-method scripts will always provide a <code class="docutils literal notranslate"><span class="pre">--network</span></code> option and run in a connected-context.
 Therefore, they are not ideal for multi-chain scripts.
 <code class="docutils literal notranslate"><span class="pre">main</span></code>-method scripts work best for quick, single-network, connection-based workflows.</p>
+</div>
 <p>To demonstrate, use the following script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ape</span> <span class="kn">import</span> <span class="n">networks</span>
 <span class="kn">import</span> <span class="nn">click</span>
@@ -342,7 +376,7 @@ Therefore, they are not ideal for multi-chain scripts.
 </div>
 <p>Without specifying <code class="docutils literal notranslate"><span class="pre">--network</span></code>, the script with connect to your default network.
 Else, specify the network using the <code class="docutils literal notranslate"><span class="pre">--network</span></code> flag:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ape<span class="w"> </span>run<span class="w"> </span>foobar<span class="w"> </span>--network<span class="w"> </span>polygon:mumbai:alchemy
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ape<span class="w"> </span>run<span class="w"> </span>foobar<span class="w"> </span>--network<span class="w"> </span>polygon:amoy:alchemy
 </pre></div>
 </div>
 <p>You can also change networks within the script using the <code class="docutils literal notranslate"><span class="pre">ProviderContextManager</span></code> (see examples in the CLI-script section above).

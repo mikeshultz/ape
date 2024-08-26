@@ -50,6 +50,23 @@
               <option value="">Select version...</option>
               <option value="latest">latest</option>
               <option value="stable">stable</option>
+                <option value="v0.8.12">v0.8.12</option>
+                <option value="v0.8.11">v0.8.11</option>
+                <option value="v0.8.10">v0.8.10</option>
+                <option value="v0.8.9">v0.8.9</option>
+                <option value="v0.8.8">v0.8.8</option>
+                <option value="v0.8.7">v0.8.7</option>
+                <option value="v0.8.6">v0.8.6</option>
+                <option value="v0.8.5">v0.8.5</option>
+                <option value="v0.8.4">v0.8.4</option>
+                <option value="v0.8.3">v0.8.3</option>
+                <option value="v0.8.2">v0.8.2</option>
+                <option value="v0.8.1">v0.8.1</option>
+                <option value="v0.8.0">v0.8.0</option>
+                <option value="v0.7.23">v0.7.23</option>
+                <option value="v0.7.22">v0.7.22</option>
+                <option value="v0.7.21">v0.7.21</option>
+                <option value="v0.7.20">v0.7.20</option>
                 <option value="v0.7.19">v0.7.19</option>
                 <option value="v0.7.18">v0.7.18</option>
                 <option value="v0.7.17">v0.7.17</option>
@@ -158,14 +175,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../userguides/forking_networks.html">Forking Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/developing_plugins.html">Developing Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/config.html">Configure Ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../userguides/transactions.html">Making Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/transactions.html">Transactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/console.html">Ape Console</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/contracts.html">Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/reverts.html">Reverts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/proxy.html">Proxy Contracts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/scripts.html">Scripting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userguides/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguides/trace.html">Traces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CLI Reference</span></p>
 <ul>
@@ -179,10 +198,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../commands/run.html">run</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands/test.html">test</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Python Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Python Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ape.html">ape</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ape_accounts.html">ape-accounts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">ape.api</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">ape.cli</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ape.contracts</a><ul>
@@ -195,17 +213,16 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ape.contracts.base.ContractInstance"><code class="docutils literal notranslate"><span class="pre">ContractInstance</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.__call__"><code class="docutils literal notranslate"><span class="pre">ContractInstance.__call__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.__dir__"><code class="docutils literal notranslate"><span class="pre">ContractInstance.__dir__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.address"><code class="docutils literal notranslate"><span class="pre">ContractInstance.address</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.call_view_method"><code class="docutils literal notranslate"><span class="pre">ContractInstance.call_view_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.creation_metadata"><code class="docutils literal notranslate"><span class="pre">ContractInstance.creation_metadata</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.from_receipt"><code class="docutils literal notranslate"><span class="pre">ContractInstance.from_receipt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.get_error_by_signature"><code class="docutils literal notranslate"><span class="pre">ContractInstance.get_error_by_signature()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.get_event_by_signature"><code class="docutils literal notranslate"><span class="pre">ContractInstance.get_event_by_signature()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.invoke_transaction"><code class="docutils literal notranslate"><span class="pre">ContractInstance.invoke_transaction()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractInstance.receipt"><code class="docutils literal notranslate"><span class="pre">ContractInstance.receipt</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#ape.contracts.base.ContractContainer"><code class="docutils literal notranslate"><span class="pre">ContractContainer</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractContainer.__ape_extra_attributes__"><code class="docutils literal notranslate"><span class="pre">ContractContainer.__ape_extra_attributes__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractContainer.__call__"><code class="docutils literal notranslate"><span class="pre">ContractContainer.__call__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractContainer.__eq__"><code class="docutils literal notranslate"><span class="pre">ContractContainer.__eq__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractContainer.__hash__"><code class="docutils literal notranslate"><span class="pre">ContractContainer.__hash__</span></code></a></li>
@@ -218,7 +235,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.__call__"><code class="docutils literal notranslate"><span class="pre">ContractEvent.__call__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.__iter__"><code class="docutils literal notranslate"><span class="pre">ContractEvent.__iter__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.from_receipt"><code class="docutils literal notranslate"><span class="pre">ContractEvent.from_receipt()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">ContractEvent.model_computed_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.info"><code class="docutils literal notranslate"><span class="pre">ContractEvent.info</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.name"><code class="docutils literal notranslate"><span class="pre">ContractEvent.name</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.poll_logs"><code class="docutils literal notranslate"><span class="pre">ContractEvent.poll_logs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ape.contracts.base.ContractEvent.query"><code class="docutils literal notranslate"><span class="pre">ContractEvent.query()</span></code></a></li>
@@ -232,6 +249,16 @@
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">ape.plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">ape.types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">ape.utils</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Plugin Python Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ape_accounts.html">ape-accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ape_compile.html">ape-compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ape_ethereum.html">ape-ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ape_ethereum.html#module-ape_ethereum.multicall">ape-ethereum.multicall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ape_node.html">ape-node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ape_pm.html">ape-pm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ape_test.html">ape-test</a></li>
 </ul>
 
         </div>
@@ -266,7 +293,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ManagerAccessMixin</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ape.contracts.base.ContractTypeWrapper.decode_input">
-<span class="sig-name descname"><span class="pre">decode_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calldata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.decode_input" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">decode_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calldata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.decode_input" title="Permalink to this definition"></a></dt>
 <dd><p>Decode the given calldata using this contract.
 If the calldata has a method ID prefix, Ape will detect it and find
 the corresponding method, else it will error.</p>
@@ -281,21 +308,21 @@ If an input does not have a number, it will have the stringified
 index as its key.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[str, Dict[str, Any]]</p>
+<dd class="field-odd"><p>tuple[str, dict[str, Any]]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ape.contracts.base.ContractTypeWrapper.identifier_lookup">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifier_lookup</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ConstructorABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MethodABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">EventABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">StructABI</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ErrorABI</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.identifier_lookup" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifier_lookup</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">ethpm_types.abi.ConstructorABI</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ethpm_types.abi.MethodABI</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ethpm_types.abi.EventABI</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ethpm_types.abi.StructABI</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ethpm_types.abi.ErrorABI</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.identifier_lookup" title="Permalink to this definition"></a></dt>
 <dd><p>Provides a mapping of method, error, and event selector identifiers to
 ABI Types.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ape.contracts.base.ContractTypeWrapper.selector_identifiers">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selector_identifiers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.selector_identifiers" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">selector_identifiers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.selector_identifiers" title="Permalink to this definition"></a></dt>
 <dd><p>Provides a mapping of function signatures (pre-hashed selectors) to
 selector identifiers.</p>
 </dd></dl>
@@ -305,9 +332,6 @@ selector identifiers.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ape.contracts.base.ContractTypeWrapper.source_path" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the path to the local contract if determined that this container
 belongs to the active project by cross checking source_id.</p>
-<p>WARN: The will return a path if the contract has the same
-source ID as one in the current project. That does not necessarily mean
-they are the same contract, however.</p>
 </dd></dl>
 
 </dd></dl>
@@ -337,17 +361,6 @@ default handler.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="api.html#ape.api.transactions.ReceiptAPI" title="ape.api.transactions.ReceiptAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReceiptAPI</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ape.contracts.base.ContractInstance.__dir__">
-<span class="sig-name descname"><span class="pre">__dir__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractInstance.__dir__" title="Permalink to this definition"></a></dt>
-<dd><p>Display methods to IPython on <code class="docutils literal notranslate"><span class="pre">c.[TAB]</span></code> tab completion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[str]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -388,9 +401,30 @@ or <code class="docutils literal notranslate"><span class="pre">balance</span></
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="ape.contracts.base.ContractInstance.creation_metadata">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">creation_metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="api.html#ape.api.query.ContractCreation" title="ape.api.query.ContractCreation"><span class="pre">ContractCreation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ape.contracts.base.ContractInstance.creation_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>txn_hash, block, deployer, factory, receipt.
+See <a class="reference internal" href="api.html#ape.api.query.ContractCreation" title="ape.api.query.ContractCreation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractCreation</span></code></a> for more details.
+<strong>NOTE</strong>: Must be either connected to a node that provides this data,
+such as a node with the <code class="docutils literal notranslate"><span class="pre">ots_</span></code> namespace enabled, or have a query-plugin
+installed that can fetch this data, such as <code class="docutils literal notranslate"><span class="pre">ape-etherscan</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Contract creation details</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ape.contracts.base.ContractInstance.from_receipt">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_receipt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receipt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api.html#ape.api.transactions.ReceiptAPI" title="ape.api.transactions.ReceiptAPI"><span class="pre">ReceiptAPI</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contract_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ContractType</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ape.contracts.base.ContractInstance" title="ape.contracts.base.ContractInstance"><span class="pre">ContractInstance</span></a></span></span><a class="headerlink" href="#ape.contracts.base.ContractInstance.from_receipt" title="Permalink to this definition"></a></dt>
+<dd><p>Create a contract instance from the contract deployment receipt.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="ape.contracts.base.ContractInstance.get_error_by_signature">
-<span class="sig-name descname"><span class="pre">get_error_by_signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="exceptions.html#ape.exceptions.CustomError" title="ape.exceptions.CustomError"><span class="pre">CustomError</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractInstance.get_error_by_signature" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_error_by_signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="exceptions.html#ape.exceptions.CustomError" title="ape.exceptions.CustomError"><span class="pre">ape.exceptions.CustomError</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractInstance.get_error_by_signature" title="Permalink to this definition"></a></dt>
 <dd><p>Get an error by its signature, similar to
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_event_by_signature()</span></code>.</p>
 <dl class="field-list simple">
@@ -449,13 +483,6 @@ or <code class="docutils literal notranslate"><span class="pre">balance</span></
 </dl>
 </dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="ape.contracts.base.ContractInstance.receipt">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">receipt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="api.html#ape.api.transactions.ReceiptAPI" title="ape.api.transactions.ReceiptAPI"><span class="pre">ReceiptAPI</span></a></em><a class="headerlink" href="#ape.contracts.base.ContractInstance.receipt" title="Permalink to this definition"></a></dt>
-<dd><p>The receipt associated with deploying the contract instance,
-if it is known and exists.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -463,7 +490,7 @@ if it is known and exists.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ape.contracts.base.</span></span><span class="sig-name descname"><span class="pre">ContractContainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contract_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ContractType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ape.contracts.base.ContractContainer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#ape.contracts.base.ContractTypeWrapper" title="ape.contracts.base.ContractTypeWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractTypeWrapper</span></code></a>, <a class="reference internal" href="utils.html#ape.utils.ExtraAttributesMixin" title="ape.utils.basemodel.ExtraAttributesMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExtraAttributesMixin</span></code></a></p>
 <p>A wrapper around the contract type that has access to the provider.
-When you import your contracts from the <code class="xref py py-class docutils literal notranslate"><span class="pre">ape.managers.project.ProjectManager</span></code>, you
+When you import your contracts from the <a class="reference internal" href="managers.html#ape.managers.project.ProjectManager" title="ape.managers.project.ProjectManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">ape.managers.project.ProjectManager</span></code></a>, you
 are using this class.</p>
 <p>Usage example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ape</span> <span class="kn">import</span> <span class="n">project</span>
@@ -471,23 +498,6 @@ are using this class.</p>
 <span class="n">contract_container</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">MyContract</span>  <span class="c1"># Assuming there is a contract named &quot;MyContract&quot;</span>
 </pre></div>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="ape.contracts.base.ContractContainer.__ape_extra_attributes__">
-<span class="sig-name descname"><span class="pre">__ape_extra_attributes__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="utils.html#ape.utils.ExtraModelAttributes" title="ape.utils.basemodel.ExtraModelAttributes"><span class="pre">ExtraModelAttributes</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractContainer.__ape_extra_attributes__" title="Permalink to this definition"></a></dt>
-<dd><p>Override this method to supply extra attributes
-to a model in Ape; this allow more properties
-to be available when invoking <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A
-series of instances defining extra model attributes.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Iterator[<a class="reference internal" href="utils.html#ape.utils.ExtraModelAttributes" title="ape.utils.basemodel.ExtraModelAttributes"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExtraModelAttributes</span></code></a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="ape.contracts.base.ContractContainer.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="api.html#ape.api.transactions.TransactionAPI" title="ape.api.transactions.TransactionAPI"><span class="pre">TransactionAPI</span></a></span></span><a class="headerlink" href="#ape.contracts.base.ContractContainer.__call__" title="Permalink to this definition"></a></dt>
@@ -588,22 +598,22 @@ Use the event types via <code class="docutils literal notranslate"><span class="
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ape.contracts.base.ContractEvent.from_receipt">
-<span class="sig-name descname"><span class="pre">from_receipt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receipt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api.html#ape.api.transactions.ReceiptAPI" title="ape.api.transactions.ReceiptAPI"><span class="pre">ReceiptAPI</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="types.html#ape.types.ContractLog" title="ape.types.ContractLog"><span class="pre">ContractLog</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractEvent.from_receipt" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">from_receipt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receipt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api.html#ape.api.transactions.ReceiptAPI" title="ape.api.transactions.ReceiptAPI"><span class="pre">ReceiptAPI</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="types.html#ape.types.ContractLog" title="ape.types.ContractLog"><span class="pre">ape.types.ContractLog</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractEvent.from_receipt" title="Permalink to this definition"></a></dt>
 <dd><p>Get all the events from the given receipt.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>receipt</strong> (<a class="reference internal" href="api.html#ape.api.transactions.ReceiptAPI" title="ape.api.transactions.ReceiptAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReceiptAPI</span></code></a>) – The receipt containing the logs.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List[<code class="xref py py-class docutils literal notranslate"><span class="pre">ContractLog</span></code>]</p>
+<dd class="field-even"><p>list[<code class="xref py py-class docutils literal notranslate"><span class="pre">ContractLog</span></code>]</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ape.contracts.base.ContractEvent.model_computed_fields">
-<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#ape.contracts.base.ContractEvent.model_computed_fields" title="Permalink to this definition"></a></dt>
-<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="ape.contracts.base.ContractEvent.info">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#ape.contracts.base.ContractEvent.info" title="Permalink to this definition"></a></dt>
+<dd><p>NatSpec info derived from the contract-type developer-documentation.</p>
 </dd></dl>
 
 <dl class="py property">
@@ -670,7 +680,7 @@ engine selection algorithm.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ape.contracts.base.ContractEvent.range">
-<span class="sig-name descname"><span class="pre">range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_or_stop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="types.html#ape.types.ContractLog" title="ape.types.ContractLog"><span class="pre">ContractLog</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractEvent.range" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_or_stop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="types.html#ape.types.ContractLog" title="ape.types.ContractLog"><span class="pre">ContractLog</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ape.contracts.base.ContractEvent.range" title="Permalink to this definition"></a></dt>
 <dd><p>Search through the logs for this event using the given filter parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -680,9 +690,9 @@ block number in the desired log set.
 Otherwise, it is the total amount of blocks to get starting from <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 <li><p><strong>stop</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – The latest block number in the
 desired log set. Defaults to delegating to provider.</p></li>
-<li><p><strong>search_topics</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>]</em>) – Search topics, such as indexed event inputs,
+<li><p><strong>search_topics</strong> (<em>Optional</em><em>[</em><em>dict</em><em>]</em>) – Search topics, such as indexed event inputs,
 to query by. Defaults to getting all events.</p></li>
-<li><p><strong>extra_addresses</strong> (Optional[List[<a class="reference internal" href="types.html#ape.types.address.AddressType" title="ape.types.address.AddressType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AddressType</span></code></a>]]) – Additional contract addresses containing the same event type. Defaults to
+<li><p><strong>extra_addresses</strong> (Optional[list[<a class="reference internal" href="types.html#ape.types.address.AddressType" title="ape.types.address.AddressType"><code class="xref py py-class docutils literal notranslate"><span class="pre">AddressType</span></code></a>]]) – Additional contract addresses containing the same event type. Defaults to
 only looking at the contract instance where this event is defined.</p></li>
 </ul>
 </dd>
